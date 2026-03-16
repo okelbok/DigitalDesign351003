@@ -1,14 +1,14 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity MinCodeConv is
+entity MIN_CODE_CONV is
     port (
         sw_i    : in    std_logic_vector(15 downto 0);
         led_o   : out   std_logic_vector(15 downto 0)
     );
-end MinCodeConv;
+end MIN_CODE_CONV;
 
-architecture Structural of MinCodeConv is
+architecture Structural of MIN_CODE_CONV is
     signal nX3, nX4 :   std_logic;
     
     component INV is

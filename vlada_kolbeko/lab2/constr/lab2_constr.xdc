@@ -45,3 +45,11 @@ set_property CFGBVS VCCO [current_design]
 set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
 set_property BITSTREAM.CONFIG.CONFIGRATE 33 [current_design]
 set_property CONFIG_MODE SPIx4 [current_design]
+
+## Allow loop for uncontrollable bistable element
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets BISTABLE/INV_0/led_o_OBUF[0]]
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets BISTABLE/INV_0/LUT_INV_0]
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets BISTABLE/INV_1/LUT_INV_0]
+
+## Allow loop for controllable bistable element
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets led_o_OBUF[1]]

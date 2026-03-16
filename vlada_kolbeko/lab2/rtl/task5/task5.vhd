@@ -15,10 +15,10 @@ architecture Structural of Task5 is
         );
     end component;
 begin
-    led_o(15 downto 2) <= (others => '0');
+    -- led_o(15 downto 2) <= (others => '0');
     
     BISTABLE: BISTABLE_U port map (
-        nQ => led_o(0),
-        Q => led_o(1)
+        nQ => led_o(1),
+        Q => led_o(0)
     );
 end Structural;

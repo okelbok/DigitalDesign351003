@@ -24,8 +24,8 @@ begin
     );
     
     INV_1: LUT_INV port map (
-        X => s1,
-        Y => s0
+        X => s0,
+        Y => s1
     );
     
     nQ <= s0;

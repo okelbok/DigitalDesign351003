@@ -1,23 +1,23 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity MinCodeConv_D_TB is
-end MinCodeConv_D_TB;
+entity MIN_CODE_CONV_D_TB is
+end MIN_CODE_CONV_D_TB;
 
-architecture Behavioral of MinCodeConv_D_TB is
+architecture Behavioral of MIN_CODE_CONV_D_TB is
     constant T          :   time := 100 ns;
     
     signal sw_i, led_o  :   std_logic_vector(15 downto 0);
     signal X, Y         :   std_logic_vector(3 downto 0);
     
-    component MinCodeConv_D is
+    component MIN_CODE_CONV_D is
         port (
             sw_i    : in    std_logic_vector(15 downto 0);
             led_o   : out   std_logic_vector(15 downto 0)
         );
     end component;
 begin
-    UUT: MinCodeConv_D port map (
+    UUT: MIN_CODE_CONV_D port map (
         sw_i => sw_i,
         led_o => led_o
     );
