@@ -31,11 +31,11 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity FreqDivBehavTest is
+entity Task4Test is
 --  Port ( );
-end FreqDivBehavTest;
+end Task4Test;
 
-architecture Behavioral of FreqDivBehavTest is
+architecture Behavioral of Task4Test is
     component FreqDivBehav is
         generic (
             K : natural := 10
