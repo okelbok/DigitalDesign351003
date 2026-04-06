@@ -39,7 +39,7 @@ entity UniversalShiftRegister is
         CLK  : in std_logic;
         CLR  : in std_logic;
         EN   : in std_logic;
-        MODE : in std_logic_vector(2 downto 0);
+        MODE : in std_logic_vector(1 downto 0);
         LOAD : in std_logic;
         Din  : in std_logic_vector(N - 1 downto 0);
         Dout : out std_logic_vector(N - 1 downto 0)
@@ -68,6 +68,7 @@ begin
                     if LOAD = '1' then
                         store <= Din;
                     end if;
+                when others =>
             end case;
         end if;
     end process;
