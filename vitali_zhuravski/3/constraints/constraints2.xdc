@@ -7,44 +7,6 @@
 #set_property -dict { PACKAGE_PIN W5   IOSTANDARD LVCMOS33 } [get_ports clk]
 #create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports clk]
 
-
-
-
-# ????????? ????????????? ????? ??? ???? ???????? ? ????????
-set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets -hierarchical *]
-
-# ??? ????? ????????? - ?????? ??? ?????? ????????
-set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets {Q[*]}]
-set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets {nQ[*]}]
-
-# ????? ????? ????????? ??? ?????????? ?????
-set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_cells -hierarchical -filter {NAME =~ *Q_inferred*}]
-set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_cells -hierarchical -filter {NAME =~ *nQ_inferred*}]
-
-# ????????? DRC ???????? ??? ???? ?????????? ?????? (???????????)
-set_property SEVERITY {Warning} [get_drc_checks LUTLP-1]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#??????? ??? 5
-#set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets led_out_OBUF[0]]
-#??????? ??? 6
-#set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets QnW]
-
 ## Switches
 set_property -dict { PACKAGE_PIN V17   IOSTANDARD LVCMOS33 } [get_ports {sw_in[0]}]
 set_property -dict { PACKAGE_PIN V16   IOSTANDARD LVCMOS33 } [get_ports {sw_in[1]}]
@@ -133,12 +95,13 @@ set_property -dict { PACKAGE_PIN L1    IOSTANDARD LVCMOS33 } [get_ports {led_out
 #set_property -dict { PACKAGE_PIN V4   IOSTANDARD LVCMOS33 } [get_ports {an[2]}]
 #set_property -dict { PACKAGE_PIN W4   IOSTANDARD LVCMOS33 } [get_ports {an[3]}]
 
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets btnR_IBUF]
 
 ##Buttons
 #set_property -dict { PACKAGE_PIN U18   IOSTANDARD LVCMOS33 } [get_ports btnC]
 #set_property -dict { PACKAGE_PIN T18   IOSTANDARD LVCMOS33 } [get_ports btnU]
 #set_property -dict { PACKAGE_PIN W19   IOSTANDARD LVCMOS33 } [get_ports btnL]
-#set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports btnR]
+set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports btnR]
 #set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports btnD]
 
 
