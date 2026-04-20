@@ -14,7 +14,6 @@ component NAND2
     port ( A, B : in std_logic;
            F : out std_logic);
 end component;
-
 begin
     NAND_1: NAND2 port map (
         A => s2,

@@ -22,8 +22,8 @@ end reg_file_2r1w;
 
 architecture rtl of reg_file_2r1w is
     constant M : integer := 2**ADDR_WIDTH;
-    subtype t_reg_word is std_logic_vector( DATA_WIDTH-1 downto 0 );
-    type t_reg_file is array ( 0 to M-1 ) of t_reg_word;
+    subtype t_reg_word is std_logic_vector(DATA_WIDTH-1 downto 0);
+    type t_reg_file is array (0 to M-1) of t_reg_word;
     signal REG_FILE : t_reg_file;
     signal write_adr : integer range 0 to M-1;
     signal read_adr0 : integer range 0 to M-1;
