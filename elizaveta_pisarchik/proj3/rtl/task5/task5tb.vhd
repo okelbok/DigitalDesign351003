@@ -65,12 +65,14 @@ begin
         CLR <= '0'; 
         wait for T;
 
-        Din <= "10110000";
+        MODE <= "10";
+        CLR <= '1'; 
         LOAD <= '1';
+        Din <= "10110000";
         wait for T;
-        LOAD <= '0';
         assert (Dout = "10110000") report "LOAD DATA FAIL" severity error;
 
+        CLR <= '0'; 
         wait for T;
         assert (Dout = "01100001") report "RING SHIFT FAIL" severity error;
 
@@ -78,12 +80,6 @@ begin
         wait for T * 2;
         assert (Dout = "01100001") report "ENABLE PRIORITY FAIL" severity error;
 
-        MODE <= "10";
-        Din <= "11001100";
-        CLR <= '1'; 
-        wait for 5 ns;
-        assert (Dout = "11001100") report "SEED RESET FAIL" severity error;
-        
         CLR <= '0';
         report "ALL TESTS PASSED" severity note;
         wait;
