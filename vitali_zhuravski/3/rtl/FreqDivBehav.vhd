@@ -48,6 +48,23 @@ architecture Behavioral of FreqDivBehav is
     signal counter : natural;
     signal output : std_logic;
 begin
+--    P0 : process(CLK)
+--    begin
+--        if rising_edge(CLK) then
+--            if RST = '1' then
+--                counter <= 0;
+--            elsif EN = '1' then
+--                if counter = KH - 1 then
+--                    counter <= 0;
+--                else
+--                    counter <= counter + 1;
+--                end if;
+--            end if;
+--        end if;
+--    end process;
+    
+--    output <= '1' when (counter = (KH - 1)) else '0';
+    
     P0 : process(CLK)
     begin
         if rising_edge(CLK) then
@@ -68,3 +85,31 @@ begin
     Q <= output;
 
 end Behavioral;
+
+--architecture Behavioral of FreqDivBehav is
+--    constant KH : natural := K / 2;
+--    signal counter : std_logic_vector(integer(ceil(log2(real(KH)))) downto 0);
+--    signal output : std_logic;
+--begin
+--    P0 : process(CLK)
+--        variable int_counter : integer;
+--    begin
+--        if rising_edge(CLK) then
+--            if RST = '1' then
+--                counter <= (others => '0');
+--            elsif EN = '1' then
+--                int_counter := to_integer(unsigned(counter));
+--                if int_counter = KH - 1 then
+--                    counter <= (others => '0');
+--                else
+--                    counter <= std_logic_vector(to_unsigned(int_counter + 1, counter'length));
+--                end if;
+--            end if;
+--        end if;
+--    end process;
+    
+--    output <= counter(counter'high);
+--    Q <= output;
+
+--end Behavioral;
+

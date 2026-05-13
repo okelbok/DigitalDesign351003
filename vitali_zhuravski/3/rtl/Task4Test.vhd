@@ -185,6 +185,15 @@ begin
                     end if;
                 end if;
             end loop;
+            
+            report "Change presentation.";
+            clock_count := 2 * (Ks(i) / 2);
+            for cur_clock in 1 to clock_count * 4 loop
+                CLK(i) <= '1';
+                wait for 10 ns;
+                CLK(i) <= '0';
+                wait for 10 ns;
+            end loop;
         end loop;
        
         report natural'image(succeded_tests) & " tests of " & natural'image(test_counter) & " successfully passed.";
